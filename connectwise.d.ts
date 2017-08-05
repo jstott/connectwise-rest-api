@@ -2953,10 +2953,32 @@ export interface OwnershipTypeReference {
      */
     "info"?: Metadata;
 }
+export interface WebHook {
+	/** Id of Ticket, Order etc as the source for callback */
+	ID: number;
+
+	/** Connectwise company name: 'oriontech' or 'training' */
+	CompanyId: string;
+
+	/** Base Url of source of callback: 'service.oriontech.com' */
+	FromUrl: string;
+
+	/** Callback event: added, updated, deleted */
+	Action: string;
+
+	/**Type of callback: company, ticket, contact, etc  */
+	Type: string;
+
+	/** MemberId of change: portal, etc*/
+	MemberId: string;
+
+	/** JSON string of Entity object for callback*/
+	Entity: string;
+}
 export interface PatchOperation {
     "op"?: string;
     "path"?: string;
-    "value"?: string;
+    "value"?: string|{};
 }
 export interface Payment {
     "id"?: number;
